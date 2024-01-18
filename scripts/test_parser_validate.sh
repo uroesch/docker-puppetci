@@ -1,5 +1,8 @@
-#!/bin/bash
-set -euo pipefail
+#!/usr/bin/env bash
 
-find . -type f -name "*.pp" | xargs puppet parser validate --debug
+set -o errexit
+set -o nounset
+set -o pipefail
 
+find . -type f -name "*.pp" | \
+  xargs puppet parser validate --debug

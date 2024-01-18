@@ -1,0 +1,28 @@
+= puppetci
+:author: Urs Roesch
+:app-name-spaced: docker puppetci
+:app-name: docker-puppetci
+:git-user: uroesch
+:app-project-url: https://github.com/{git-user}/{app-name}
+:icons: font
+:imagesdir: .
+ifdef::env-gitlab[]
+:git-base-url: https://gitlab.com/{git-user}
+endif::env-gitlab[]
+ifdef::env-github[]
+:git-base-url: https://github.com/{git-user}
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::env-github[]
+
+A docker container containing a plethora of puppet tools such as
+
+* puppet
+* puppet-lint 
+* puppet-check
+* r10k
+* puppet-ghostbuster
+* octocatalog-diff

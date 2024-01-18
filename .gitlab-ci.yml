@@ -3,19 +3,11 @@ services:
   - docker:dind
 
 before_script:
-  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.vshn.net
+  - docker login -u uroesch -p $DOCKER_HUB_TOKEN hub.docker.com
 
-puppetci:3:
+puppetci:7:
   script:
-    - docker build -t registry.vshn.net/vshn-docker/puppetci:3 -f Dockerfile3 .
-    - docker push registry.vshn.net/vshn-docker/puppetci:3
+    - docker build -t docker.io/uroesch/puppetci:7 -f Dockerfile .
+    - docker push docker.io/uroesch/puppetci:7
   tags:
     - dockerbuild
-
-puppetci:4:
-  script:
-    - docker build -t registry.vshn.net/vshn-docker/puppetci:4 -f Dockerfile4 .
-    - docker push registry.vshn.net/vshn-docker/puppetci:4
-  tags:
-    - dockerbuild
-

@@ -1,9 +1,12 @@
-#!/bin/bash
-set -euo pipefail
+#!/usr/bin/env bash
 
-# allow lines longer then 80 characters
-# code should be clean of warnings
+set -o errexit
+set -o nounset
+set -o pipefail
 
-puppet-lint . \
---no-140chars-check \
---fail-on-warnings \
+declare -ra LINT_CHECKS=(
+  --no-140chars-check    # allow lines longer then 80 characters
+  --fail-on-warnings     # code should be clean of warnings
+)
+
+puppet-lint ${LINT_CHECKS[@]} .
